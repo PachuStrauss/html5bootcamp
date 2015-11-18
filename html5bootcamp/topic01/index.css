@@ -1,0 +1,30 @@
+BODY, BUTTON
+{
+	font-family: 'Lato';
+}
+SECTION
+{
+	margin: 0 auto;
+}
+BUTTON:hover
+{
+	cursor: pointer;
+}
+.hidden
+{
+	display: none;
+}
+.btn
+{
+	width: auto;
+	height: auto;
+	padding: 0.5em;
+	background-color: #A8B3EB;
+	border-radius: 5px;
+	border: 0px;
+	box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+}
+.btn:hover
+{
+	background-color: #C1CCDE;
+}

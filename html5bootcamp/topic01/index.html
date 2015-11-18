@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title="HTML5 | Boot Camp">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="index.css" type="text/css">
+	<link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+	<header>
+		<h1>Supercalifragilistic Header<br>
+		<small>For reading-level purposes</small></h1>
+	</header>
+	
+	<section>
+		<h1>Section 1</h1>
+		<p>This is Section 1, allegedly. Of course, you should never trust anyone. Specially your father.</p>
+	</section>
+	
+	<section class="hidden">
+		<h1>Section 2</h1>
+		<p>Ah! But here is Section 2...OR IS IT?</p>
+		<input class="alias">
+		<button class="btn">Click Me!</button>
+	</section>
+	
+	<footer>
+	</footer>
+
+<script>
+	$(document).ready(function () 
+	{
+    	$('section.hidden').fadeIn(2000).removeClass('hidden');
+    	$('.alias').focus();
+    	$("button").click(function(){
+    		$.get("http://bootcamp.aws.af.cm/welcome/yourname");
+		});
+	});
+</script>
+
+</body>
