@@ -1,0 +1,311 @@
+/* html5reset.css - 01/11/2011 */
+HTML, BODY, DIV, SPAN, OBJECT, IFRAME, H1, H2, H3, H4, H5, H6, P, BLOCKQUOTE, PRE, ABBR, ADDRESS, CITE, CODE, DEL, DFN, EM, IMG, INS, KBD, Q, SAMP, SMALL, STRONG, SUB, SUP, VAR, B, I, DL, DT, DD, OL, UL, LI, FIELDSET, FORM, LABEL, LEGEND, TABLE, CAPTION, TBODY, TFOOT, THEAD, TR, TH, TD, ARTICLE, ASIDE, CANVAS, DETAILS, FIGCAPTION, FIGURE, FOOTER, HEADER, HGROUP, MENU, NAV, SECTION, SUMMARY, TIME, MARK, AUDIO, VIDEO
+{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+BODY
+{
+	line-height: 1;
+	font: medium 'Montserrat';
+}
+ARTICLE, ASIDE, DETAILS, FIGCAPTION, FIGURE, FOOTER, HEADER, HGROUP, MENU, NAV, SECTION
+{
+	display: block;
+}
+NAV UL
+{
+	list-style: none;
+}
+BLOCKQUOTE, Q
+{
+	quotes: none;
+}
+BLOCKQUOTE:before, BLOCKQUOTE:after, Q:before, Q:after
+{
+	content: '';
+	content: none;
+}
+A
+{
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+	color: rgba(0, 0, 0, 1);
+}
+INS
+{
+	background-color: #FF9;
+	color: #000;
+	text-decoration: none;
+}
+MARK
+{
+	background-color: #FF9;
+	color: #000;
+	font-style: italic;
+	font-weight: bold;
+}
+DEL
+{
+	text-decoration: line-through;
+}
+ABBR[title], DFN[title]
+{
+	border-bottom: 1px dotted;
+	cursor: help;
+}
+TABLE
+{
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+HR
+{
+	display: block;
+	height: 1px;
+	border: 0;
+	border-top: 1px solid #CCCCCC;
+	margin: 1em 0;
+	padding: 0;
+}
+INPUT, SELECT
+{
+	vertical-align: middle;
+}
+*, *:before, *:after
+{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+/*Container*/
+.container
+{
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+}
+@media (min-width: 768px)
+{
+	.container
+	{
+		width: 750px;
+	}
+}
+@media (min-width: 992px)
+{
+	.container
+	{
+		width: 970px;
+	}
+}
+@media (min-width: 1200px)
+{
+	.container
+	{
+		width: 1170px;
+	}
+}
+.container-fluid
+{
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+}
+/*Columns*/
+.section
+{
+	clear: both;
+	padding: 0px;
+	margin: 0px 0px 50px 0px;
+}
+.group:before, .group:after
+{
+	content: "";
+	display: table;
+}
+.group:after
+{
+	clear: both;
+}
+.group
+{
+	zoom: 1;
+	/* For IE 6/7 (trigger hasLayout) */
+}
+.col
+{
+	display: block;
+	float: left;
+	margin: 1% 0 1% 1.6%;
+}
+.col:first-child
+{
+	margin-left: 0;
+}
+@media only screen and (max-width: 480px)
+{
+	.col
+	{
+		margin: 1% 0 1% 0%;
+	}
+}
+.span-12
+{
+	width: 100%;
+}
+.span-11
+{
+	width: 91.53%;
+}
+.span-10
+{
+	width: 83.06%;
+}
+.span-9
+{
+	width: 74.6%;
+}
+.span-8
+{
+	width: 66.13%;
+}
+.span-7
+{
+	width: 57.66%;
+}
+.span-6
+{
+	width: 49.2%;
+}
+.span-5
+{
+	width: 40.73%;
+}
+.span-4
+{
+	width: 32.26%;
+}
+.span-3
+{
+	width: 23.8%;
+}
+.span-2
+{
+	width: 15.33%;
+}
+.span-1
+{
+	width: 6.86%;
+}
+.span-1, .span-2, .span-3, .span-4, .span-5, .span-6, .span-7, .span-8, .span-9, .span-10, .span-11, .span-12
+{
+	position: relative;
+}
+@media only screen and (max-width: 480px)
+{
+	.span-12
+	{
+		width: 100%;
+	}
+	.span-11
+	{
+		width: 100%;
+	}
+	.span-10
+	{
+		width: 100%;
+	}
+	.span-9
+	{
+		width: 100%;
+	}
+	.span-8
+	{
+		width: 100%;
+	}
+	.span-7
+	{
+		width: 100%;
+	}
+	.span-6
+	{
+		width: 100%;
+	}
+	.span-5
+	{
+		width: 100%;
+	}
+	.span-4
+	{
+		width: 100%;
+	}
+	.span-3
+	{
+		width: 100%;
+	}
+	.span-2
+	{
+		width: 100%;
+	}
+	.span-1
+	{
+		width: 100%;
+	}
+}
+IMG
+{
+	width: 100%;
+}
+.screen
+{
+	background-color: rgba(0, 0, 0, 0.5);
+	left: 0;
+	top: 0;
+	border-radius: 0;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	opacity: 0;
+	z-index: 1000;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+.screen:hover
+{
+	opacity: 1;
+}
+.title
+{
+	color: #FFF;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+	margin-left: -30px;
+}
+.screen:hover .title
+{
+	margin-left: 0;
+}
+.screen.fade-in .title
+{
+	margin-left: 0;
+}
+.screen.fade-in:hover
+{
+}
