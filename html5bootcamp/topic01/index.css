@@ -3,21 +3,68 @@ BODY, BUTTON
 	font-family: 'Montserrat';
 	margin: 0;
 }
-SECTION
+HEADER, SECTION
 {
 	padding: 4.9em;
 	text-align: center;
 }
+ASIDE
+{
+	float: right;
+	width: 30%;
+	height: 770px;
+	font-size: 80%;
+	overflow: auto;
+	color: #FFFFFF;
+	padding-left: 20px;
+	background-color: #6597DB;
+	margin-left: 50px;
+	border-radius: 0 0 0 20px;
+}
+ASIDE IMG
+{
+	width: 200px;
+}
+ASIDE .sidebar-search
+{
+	position: absolute;
+	background-color: white;
+	box-shadow: 0px 5px 3px rgba(0, 0, 0, 0.1);
+	padding: 10px;
+	margin-left: -20px;
+	border-radius: 0 0 20px 0;
+}
+ASIDE H1
+{
+	padding: 10px;
+	margin-left: ;
+	margin-bottom: 10px;
+	color: black;
+}
+ASIDE .sidebar-result
+{
+	padding-top: 150px;
+}
+ASIDE A
+{
+	color: #EADA9A;
+}
 H1
 {
 	text-transform: uppercase;
-}
-SECTION H1
-{
 	font-size: 3em;
 	letter-spacing: 0.1em;
 	margin: 0 auto;
-	border: 10px solid;
+	border: 6px solid;
+	padding: 10px 0;
+}
+SECTION H1
+{
+	border: 0;
+}
+HEADER SMALL
+{
+	font-size: 50%;
 }
 SECTION P
 {
@@ -42,6 +89,10 @@ BUTTON:hover
 	background-color: #1C1C1C;
 	color: #FFFFFF;
 }
+.primary
+{
+	background-color: #DE4F4F;
+}
 .error
 {
 	background-color: #F31616;
@@ -61,4 +112,55 @@ BUTTON:hover
 .btn:hover
 {
 	background-color: rgba(146, 220, 226, 0.992);
+}
+#javawrite
+{
+	margin: 10px;
+}
+@media screen and (max-width: 1090px)
+{
+	ASIDE
+	{
+		display: block;
+		float: none;
+		margin: 0;
+		width: 100%;
+		border-radius: 0px;
+		bottom: 0;
+		text-align: center;
+		padding: 4.9em 0;
+	}
+	ASIDE IMG
+	{
+		width: 200px;
+	}
+	ASIDE .sidebar-search
+	{
+		position: relative;
+		background-color: transparent;
+		box-shadow: none;
+		padding: 0px;
+		margin-left: 0px;
+		border-radius: 0px;
+	}
+	ASIDE H1
+	{
+		padding: 10px;
+		margin-bottom: 10px;
+		color: black;
+	}
+	ASIDE .sidebar-result
+	{
+		padding-top: 0px;
+	}
+	ASIDE A
+	{
+		color: #EADA9A;
+	}
+	ASIDE .rs-album
+	{
+		display: inline-block;
+		margin: 10px;
+		max-width: 200px;
+	}
 }

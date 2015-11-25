@@ -5,20 +5,49 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="index.css" type="text/css">
-	<link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
 	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </head>
 
 <body>
-
-	<section class="hidden normal">
-		<h1>This is a <br>hidden section...</h1>
-		<p>But VOILÁ, now it's showing all of the sudden! Magic? WITCHCRAFT?
-		<br>NO, <b>JAVASCRIPT!</b></p>
-		<input class="alias" type="text">
-		<button class="btn">Click Me!</button>
+	<header>
+		<h1>This is a header<br>
+		<small>But you already knew that, didn't you?</small></h1>
+	</header>
+	<aside id="sidebar">
+		<div class="sidebar-search">
+			<h1>Album search</h1>
+			<input id="album-query" type='text' Placeholder="Enter the album name">
+			<button id="query-button" class="btn" Title="Click here to search for an album">Search!</button>
+		</div>
+		<div class="sidebar-result">
+			<div id="loading"></div>
+		</div>
+		<p></p>
+	</aside>
+	<!--This is a normal section. "normal" class applies the same values that all sections have.
+	"primary", however, tells it to be fucking blue. Or whatever that color is. Go ask a woman-->
+	<section class="normal primary">
+		<h1>This is a normal section</h1>
+		<p>Won't do much, really, except just standing there, still, motionless, no animation, except for...</p>
 	</section>
+	<!--The following section also has the "normal" class applied, but the "hidden" class has 
+	a "display:none" property, which is then removed with javaScript -->
+	<section class="hidden normal">
+		<h1>Hello, world!</h1>
+		<p>HOLY SHIT, this section just faded in from nowhere! Magic? WITCHCRAFT?
+		<br>NO, <b>JAVASCRIPT!</b></p>
+		<input class="alias" type="text" placeholder="Check out this sick ass input.">
+	<!--This button has an ID for the sole purpose of being identified specifically by javaScript later.
+	This allows you to apply a function to said button, numbnuts.-->
+		<button id="bringit" class="btn">Click Me!</button>
+	<!--This is the ID in which the warning message will be displayed afterwards. Like the spot in the 
+	fridge where your mom puts all the take-out magnets-->
+		<div id="javawrite">
+			<h1 id="welcome-message"></h1>
+		</div>
+	</section>
+
 	
 	<footer>
 	</footer>
@@ -26,14 +55,85 @@
 <script>
 	$(document).ready(function () 
 	{
+	/*This function will make any section in the document fade in, provided it has the "hidden"
+	class applied. Value after "fadeIn" is the time it takes for the div to fade in, expressed
+	in miliseconds. Very sciencey.*/
     	$('section.hidden').fadeIn(2000).removeClass('hidden');
+    /*This function will make the cursor focus on the input with the "alias" class applied.*/
     	$('.alias').focus();
 	});
-	$("button").click(function(){
-	$.get("http://bootcamp.aws.af.cm/welcome/yourname", function(data){
-  alert("Data: " + status), text();
-});
-	});
+	/*This function will target the button (ID "bringit") and apply the function that calls a 
+	response from the provided URL*/
+	$("#bringit").click(function(){
+	    $.ajax(
+	    
+			{url: "http://bootcamp.aws.af.cm/welcome/yourname", success: 
+				function(result){
+					$.when(
+						$(" #welcome-message ").text(result.response).css("color", "inherit")
+						).done(
+							setTimeout(function(){
+								string = $(" #welcome-message ").text()
+								string = string.replace("yourname!", "")
+								$(" #welcome-message ").text(string)
+								$(" #welcome-message ").append( "<a class='highlight'>yourname!</a>" )
+										}, 1000)
+							);
+						}, 
+					error: function(){
+						$(" #hidden-section-h1 ").css("color", "red");
+						$(" #hidden-section-h1 ").text("Network error");
+						}
+			});
+		}); 
 </script>
 
+<script>
+	function renderAlbumResults(data){
+		$("p.not-found").remove()
+		$("article.rs-album").remove()
+		$(data.albums.items).each(function(){
+			$("#sidebar").append('<article  class="rs-album">')	
+			})
+		$("article.rs-album").each(function(index){
+			//name, type, image, release_date, and a link to spotify
+			$(this).append("<p>Name:" + data.albums.items[index].name + "</p>")
+			$(this).append('<img src="' + data.albums.items[index].images[0].url + '"/>')
+			$(this).append('<p><a href="' + data.albums.items[index].external_urls.spotify + '">Link</a></p>')
+			});
+			if (data.albums.items == ""){
+				$("#sidebar").append('<p  class="not-found"><i>Sorry, no albums found!</i></p>')				
+				}
+		}
+	function onLoadEvents(){
+		$.ajax({url:"https://api.spotify.com/v1/search?q=rolling+stones&type=album", success:
+			function(data){
+				renderAlbumResults(data)
+			}
+		});
+	}
+	$( "#album-query" ).focus(function() {
+		if (empty_input == 0){
+				$( "#album-query" ).val("").css({fontStyle: "normal", color: "black"})
+				empty_input = 1
+			}
+	});
+
+	$("#album-query").keypress(function(event) {
+	    if (event.which == 13) {
+	        event.preventDefault();
+	        $( "#query-button" ).click();
+	    }
+	});
+	$( "#query-button" ).click(function() {
+	  $( "#loading" ).html("<img src='img/loading.gif' height='30'>")
+	  
+	  $.ajax({url:"https://api.spotify.com/v1/search?q=" + $( "#album-query" ).val() + "&type=album", success:
+			function(data){
+				renderAlbumResults(data)
+				$( "#loading" ).html("")
+			}})
+	});
+	$( document ).ready( onLoadEvents );
+</script>
 </body>
